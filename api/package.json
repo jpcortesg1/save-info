@@ -1,0 +1,18 @@
+{
+  "name": "save-info",
+  "version": "1.0.0",
+  "description": "project to save personal info by categories",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "jpcortesg"
+  },
+  "keywords": [
+    "MERN"
+  ],
+  "author": "Juan Pablo Cortes Gonzalez",
+  "license": "ISC"
+}
