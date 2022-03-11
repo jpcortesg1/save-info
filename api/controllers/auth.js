@@ -100,6 +100,7 @@ const register = async (req, res) => {
       email: req.body.email,
     };
     if (req.body.photo) credentials.photo = req.body.photo;
+    else credentials.photo = "";
     const user = await User.createUser(credentials);
     res.status(200).json(user);
   } catch (error) {

@@ -34,15 +34,22 @@ class User {
     this.User = mongoose.model("User", UserSchema);
   }
 
+  async delete(id){
+    await this.User.findByIdAndDelete(id);
+  }
+
+  async updateUser(id, user) {
+    return await this.User.findByIdAndUpdate(id, { $set: user }, { new: true });
+  }
+
   async validatePassword(password, encrypt) {
     return await bcrypt.compare(password, encrypt);
   }
 
   async findUser(param) {
-    const { username } = param;
-    if (username) {
-      return await this.User.findOne({ username });
-    }
+    const { username, id } = param;
+    if (username) return await this.User.findOne({ username });
+    if (id) return await this.User.findById(id);
   }
 
   async encryptPassword(password) {

@@ -2,9 +2,18 @@
 const router = require("express").Router();
 
 // Controller
-const { createUser } = require("./../controllers/user");
+const { getUser, update, deleteUser } = require("./../controllers/user");
 
-// Get
-router.get("/", createUser);
+// Middleware
+const verify = require("./../middleware/verify");
+
+// Delete
+router.delete("/", verify, deleteUser);
+
+// Update
+router.put("/", verify, update);
+
+// Get user
+router.get("/", verify, getUser);
 
 module.exports = router;
