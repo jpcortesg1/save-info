@@ -6,6 +6,20 @@ const classRefreshToken = require("./../models/RefreshToken");
 const User = new classUser();
 const RefreshToken = new classRefreshToken();
 
+// Logout
+const logout = async (req, res) => {
+  const token = req.body.token;
+  if (!token) return res.status(401).json("You are not authenticated!");
+  try {
+    const tokenBd = await RefreshToken.findToken({ token });
+    if (!tokenBd) return res.status(403).json("Refresh token is no valid!");
+    await RefreshToken.delete(tokenBd._id.toString());
+    res.status(200).json("You logged out successfully");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 // Refresh token
 const refresh = async (req, res) => {
   // Take token
@@ -26,8 +40,6 @@ const refresh = async (req, res) => {
 
     // Delete current token
     await RefreshToken.delete(tokenBd._id.toString());
-
-    console.log(user);
 
     // Create new tokens
     const accessToken = RefreshToken.generateAccessToken(user.id);
@@ -99,4 +111,5 @@ module.exports = {
   register,
   login,
   refresh,
+  logout,
 };

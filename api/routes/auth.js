@@ -2,14 +2,13 @@
 const router = require("express").Router();
 
 // Controller
-const { register, login, refresh } = require("./../controllers/auth");
+const { register, login, refresh, logout } = require("./../controllers/auth");
 
 // Middleware
 const verify = require("./../middleware/verify");
 
-router.post("/verify", verify, (req, res) => {
-  res.status(200).json("Hola");
-});
+// Logout
+router.post("/logout", verify, logout);
 
 // Refresh token
 router.post("/refresh", refresh);
