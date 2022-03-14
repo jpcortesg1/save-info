@@ -2,6 +2,12 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+// Required class
+const Category = require("./Category");
+
+// Object
+const category = new Category();
+
 // Schema
 const UserSchema = new mongoose.Schema(
   {
@@ -34,7 +40,8 @@ class User {
     this.User = mongoose.model("User", UserSchema);
   }
 
-  async delete(id){
+  async delete(id) {
+    await category.delete(null, { idUser: id });
     await this.User.findByIdAndDelete(id);
   }
 
