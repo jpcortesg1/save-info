@@ -1,0 +1,92 @@
+.homeWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.homeTop {
+  display: flex;
+  height: 25rem;
+}
+
+.homeLogo {
+  flex: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeLogoImg {
+  background: #0f8486;
+  border-radius: 50%;
+  width: 22rem;
+}
+
+.homeTitle {
+  flex: 6;
+  font-family: "Dynalight", cursive;
+  font-size: 9rem;
+  padding-right: 7rem;
+  text-align: center;
+}
+
+.homeBottom {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+.homeDescription{
+  padding-left: 1rem;
+  text-align: left;
+  border-left: 0.3rem solid #0f8486;
+}
+
+.homeButton {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  color: #0f8486;
+  background: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.homeButton:hover {
+  border-radius: 5px;
+  background: #0f8486;
+  color: #000;
+}
+
+.homeButtonLogin{
+  position: absolute;
+  padding: 8px 16px;
+  font-size: 1.5rem;
+  right: 3rem;
+  background: #0f8486;
+  color: #000;
+}
+
+.homeButtonLogin:hover{
+  color: #0f8486;
+  background: #000;
+}
+
+.homeFigure{
+  position: absolute;
+  right: -7.5rem;
+  bottom: -7.5rem;
+  width: 15rem;
+  height: 15rem;
+  background: #000;
+  border-radius: 50%;
+}
