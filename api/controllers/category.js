@@ -4,6 +4,17 @@ const Category = require("./../models/Category");
 // Object
 const category = new Category();
 
+// Get
+const getCategoriesUser = async (req, res) => {
+  try {
+    const { id: idUser } = req.user;
+    const categories = await category.get({ idUser });
+    res.status(200).json(categories);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 // Delete
 const deleteCategory = async (req, res) => {
   try {
@@ -60,4 +71,5 @@ module.exports = {
   create,
   update,
   deleteCategory,
+  getCategoriesUser
 };

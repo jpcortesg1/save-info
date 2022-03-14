@@ -5,7 +5,15 @@ const router = require("express").Router();
 const verify = require("./../middleware/verify");
 
 // Controller
-const { create, update, deleteCategory } = require("./../controllers/category");
+const {
+  create,
+  update,
+  deleteCategory,
+  getCategoriesUser,
+} = require("./../controllers/category");
+
+// Get
+router.get("/", verify, getCategoriesUser);
 
 // Delete
 router.delete("/", verify, deleteCategory);

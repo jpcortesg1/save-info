@@ -31,7 +31,8 @@ class Category {
   }
 
   async get(param) {
-    const { id } = param;
+    const { id, idUser } = param;
+    if (idUser) return await this.Category.find({ idUser });
     return await this.Category.findById(id);
   }
 
