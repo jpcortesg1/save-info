@@ -35,8 +35,10 @@ class Post {
   }
 
   async delete(params) {
-    const { id } = params;
+    const { id, idUser, idCategory } = params;
     if (id) await this.Post.findByIdAndDelete(id);
+    if (idUser) await this.Post.deleteMany(idUser);
+    if (idCategory) await this.Post.deleteMany(idCategory);
   }
 
   async update(id, newPost) {

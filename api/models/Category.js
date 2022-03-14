@@ -1,6 +1,12 @@
 // Required modules
 const mongoose = require("mongoose");
 
+// Required class
+const classPost = require("./Post");
+
+// Object
+const Post = new classPost();
+
 const CategorySechema = mongoose.Schema(
   {
     idUser: {
@@ -22,8 +28,14 @@ class Category {
   }
 
   async delete(id, idUser) {
-    if (idUser) await this.Category.deleteMany(idUser);
-    if (id) await this.Category.findByIdAndDelete(id);
+    if (idUser) {
+      await this.Category.deleteMany(idUser);
+      await Post.delete({ idUser });
+    }
+    if (id) {
+      await this.Category.findByIdAndDelete(id);
+      await Post.delete({ idCategory: id });
+    }
   }
 
   async update(id, category) {
