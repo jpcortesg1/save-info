@@ -34,7 +34,7 @@ class RefreshToken {
 
   generateAccessToken(id) {
     return jwt.sign({ id }, process.env.SECRET_KEY, {
-      expiresIn: "15m",
+      expiresIn: "59m",
     });
   }
 

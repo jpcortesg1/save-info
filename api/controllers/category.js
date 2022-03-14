@@ -4,7 +4,18 @@ const Category = require("./../models/Category");
 // Object
 const category = new Category();
 
-// Get
+// Get a category
+const get = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const categoryRet = await category.get({ id });
+    res.status(200).json(categoryRet);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+// Get all categories of a user
 const getCategoriesUser = async (req, res) => {
   try {
     const { id: idUser } = req.user;
@@ -20,9 +31,10 @@ const deleteCategory = async (req, res) => {
   try {
     const { id: idUser } = req.user;
     const { id } = req.body;
+    if (!id) res.status(400).json("Missing information to delete category");
 
     const categoryBody = await category.get({ id });
-    if (!categoryBody.idUser === idUser)
+    if (categoryBody.idUser !== idUser)
       return res.status(401).json("You can only delete your categories");
 
     await category.delete(id);
@@ -40,7 +52,7 @@ const update = async (req, res) => {
     if (!id || !name) return res.status(404).json("Invalid parameters");
 
     const categoryBody = await category.get({ id });
-    if (!categoryBody.idUser === idUser)
+    if (categoryBody.idUser !== idUser)
       return res.status(401).json("You can only update your categories");
 
     await category.update(id, { name });
@@ -71,5 +83,6 @@ module.exports = {
   create,
   update,
   deleteCategory,
-  getCategoriesUser
+  getCategoriesUser,
+  get
 };

@@ -8,6 +8,7 @@ const db = require("./db/db.js");
 const routeAuth = require("./routes/auth");
 const routeUsers = require("./routes/users");
 const routeCategories = require("./routes/categories");
+const routePosts = require("./routes/posts");
 
 // Create app of express
 const app = express();
@@ -27,6 +28,7 @@ db.connect();
 app.use("/api/auth", routeAuth);
 app.use("/api/users", routeUsers);
 app.use("/api/categories", routeCategories);
+app.use("/api/posts", routePosts);
 
 app.listen(process.env.PORT, () => {
   console.log(`api run in ${process.env.PORT}`);

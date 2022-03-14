@@ -4,28 +4,28 @@ const router = require("express").Router();
 // Middleware
 const verify = require("./../middleware/verify");
 
-// Controller
+// Controllers
 const {
   create,
   update,
-  deleteCategory,
-  getCategoriesUser,
+  deletePost,
+  getPostsCategory,
   get,
-} = require("./../controllers/category");
+} = require("./../controllers/post");
 
-// Get a category
+// Get a post
 router.get("/", verify, get);
 
-// Get categories for user
-router.get("/user", verify, getCategoriesUser);
+// Get all post for category
+router.get("/category", verify, getPostsCategory);
 
 // Delete
-router.delete("/", verify, deleteCategory);
+router.delete("/", verify, deletePost);
 
 // Update
 router.put("/", verify, update);
 
-// create
+// Create
 router.post("/", verify, create);
 
 module.exports = router;
