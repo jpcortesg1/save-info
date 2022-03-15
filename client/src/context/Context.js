@@ -3,13 +3,10 @@ import Reducer from "./Reducer";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-const axiosJWT = axios.create();
-
 const INITIAL_STATES = {
   token: JSON.parse(localStorage.getItem("token")) || null,
   isFetching: false,
   error: false,
-  axiosJWT,
 };
 
 export const Context = createContext(INITIAL_STATES);
@@ -25,7 +22,7 @@ export const ContextProvider = ({ children }) => {
     if (state.token) {
       const refreshToken = async () => {
         dispatch({ type: "LOGIN_START" });
-        const { data } = await state.axiosJWT.post("/auth/refresh", {
+        const { data } = await axios.post("/auth/refresh", {
           token: state.token?.refreshToken,
         });
         dispatch({ type: "REFRESH_TOKEN", payload: data });
@@ -41,7 +38,7 @@ export const ContextProvider = ({ children }) => {
         }, (expireToken - currentTime) * 1000);
       }
     }
-  }, [state.token, state.axiosJWT]);
+  }, [state.token]);
 
   return (
     <Context.Provider
@@ -49,7 +46,6 @@ export const ContextProvider = ({ children }) => {
         token: state.token,
         isFetching: state.isFetching,
         error: state.error,
-        axiosJWT: state.axiosJWT,
         dispatch,
       }}
     >
