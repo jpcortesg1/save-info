@@ -20,7 +20,8 @@ class RefreshToken {
 
   async findToken(params) {
     const { token } = params;
-    if (token) return await this.RefreshToken.findOne({ token });
+    const tokenBd = await this.RefreshToken.findOne({ token });
+    return tokenBd;
   }
 
   verifyToken(token, key) {
@@ -34,7 +35,7 @@ class RefreshToken {
 
   generateAccessToken(id) {
     return jwt.sign({ id }, process.env.SECRET_KEY, {
-      expiresIn: "59m",
+      expiresIn: "15m",
     });
   }
 
