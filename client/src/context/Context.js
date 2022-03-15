@@ -21,22 +21,27 @@ export const ContextProvider = ({ children }) => {
     localStorage.setItem("token", JSON.stringify(state.token));
   }, [state.token]);
 
-  if (state.axiosJWT && state.token) {
-    state.axiosJWT.interceptors.request.use(
-      async (config) => {
-        let currentData = new Date();
-        const decodeToken = jwt_decode(state.token.accessToken);
-        if (decodeToken.exp * 1000 < currentData.getTime()) {
-          dispatch({ type: "REFRESH_TOKEN" });
-          config.headers["authorization"] = "Bearer " + state.token.accessToken;
-        }
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
+  useEffect(() => {
+    if (state.token) {
+      const refreshToken = async () => {
+        dispatch({ type: "LOGIN_START" });
+        const { data } = await state.axiosJWT.post("/auth/refresh", {
+          token: state.token?.refreshToken,
+        });
+        dispatch({ type: "REFRESH_TOKEN", payload: data });
+        dispatch({ type: "END_LOAD" });
+      };
+      const { exp: expireToken } = jwt_decode(state.token?.accessToken);
+      const currentTime = Math.round(new Date().getTime() / 1000);
+      if (expireToken && currentTime >= expireToken) {
+        refreshToken();
+      } else {
+        setTimeout(() => {
+          dispatch({ type: "REFRESH_TOKEN", payload: state.token });
+        }, (expireToken - currentTime) * 1000);
       }
-    );
-  }
+    }
+  }, [state.token, state.axiosJWT]);
 
   return (
     <Context.Provider

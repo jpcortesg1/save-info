@@ -19,14 +19,12 @@ function Login() {
     };
     try {
       const { data } = await axios.post("/auth/login", params);
-      await dispatch({ type: "LOGIN_SUCCESS", payload: data });
+      dispatch({ type: "LOGIN_SUCCESS", payload: data });
     } catch (error) {
       console.log(error);
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
-
-  console.log(isFetching);
 
   return (
     <div className="login">
