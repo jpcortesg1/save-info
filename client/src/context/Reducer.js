@@ -1,23 +1,35 @@
 const Reducer = (state, action) => {
   switch (action.type) {
+    case "REFRESH_TOKEN":
+      state.axiosJWT
+        .post("/auth/refres", { token: state.token.refreshToken })
+        .then(({ data }) => {
+          return {
+            ...state,
+            token: {
+              ...state.token,
+              refreshToken: data.refreshToken,
+              accessToken: data.accessToken,
+            },
+          };
+        });
+      return state;
+
     case "LOGIN_START":
       return {
-        user: null,
+        ...state,
         isFetching: true,
-        error: false,
       };
 
     case "LOGIN_SUCCESS":
       return {
-        user: action.payload,
-        isFetching: false,
-        error: false,
+        ...state,
+        token: action.payload,
       };
 
     case "LOGIN_FAILURE":
       return {
-        user: null,
-        isFetching: false,
+        ...state,
         error: true,
       };
 

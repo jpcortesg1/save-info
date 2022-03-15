@@ -23,7 +23,7 @@ const logout = async (req, res) => {
 // Refresh token
 const refresh = async (req, res) => {
   // Take token
-  const token = req.body.token;
+  const token = req.body;
   if (!token) return res.status(401).json("You are not authenticated!");
 
   try {
