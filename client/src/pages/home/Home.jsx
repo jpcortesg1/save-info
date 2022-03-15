@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
+import Icon from "../../components/icon/Icon";
 import "./home.css";
 
 function home() {
-  const PF = process.env.REACT_APP_PF;
   return (
     <div className="home">
       <div className="homeWrapper">
         <div className="homeTop">
-          <div className="homeLogo">
-            <img src={`${PF}/logo1.png`} className="homeLogoImg" />
+          <div className="homeIcon">
+            <Icon />
           </div>
           <h1 className="homeTitle">Save Info</h1>
         </div>
@@ -16,9 +17,17 @@ function home() {
             Save Info is an application where you can store personal information
             organized into different categories.
           </p>
-          <button className="homeButton">Get Start</button>
+          <button className="homeButton">
+            <Link to="/register" className="link">
+              Get Start
+            </Link>
+          </button>
         </div>
-        <button className="homeButton homeButtonLogin">Login</button>
+        <button className="homeButton homeButtonLogin">
+          <Link className="link" to="/login">
+            Login
+          </Link>
+        </button>
         <div className="homeFigure"></div>
       </div>
     </div>
