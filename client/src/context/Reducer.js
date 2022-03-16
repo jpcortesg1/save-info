@@ -25,6 +25,7 @@ const Reducer = (state, action) => {
     case "LOGIN_SUCCESS":
       return {
         ...state,
+        isFetching: false,
         token: action.payload,
       };
 

@@ -84,5 +84,5 @@ module.exports = {
   update,
   deleteCategory,
   getCategoriesUser,
-  get
+  get,
 };

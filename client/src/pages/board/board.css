@@ -1,0 +1,7 @@
+.boardMain{
+  display: flex;
+}
+
+.boardContainter{
+  flex: 10;
+}

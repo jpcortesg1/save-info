@@ -1,0 +1,55 @@
+.topbar {
+  max-width: 100vw;
+  height: 80px;
+  background: #0f8486;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.topbarLeft {
+  width: 70px;
+  height: 70px;
+  margin-top: 5px;
+  margin-left: 80px;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.topbarRight {
+  display: flex;
+  margin-right: 80px;
+}
+
+.topbarProfile {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.topbarImg {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.topbarLogout {
+  margin: 20px 0;
+  font-size: 1.1rem;
+  padding: 5px 20px;
+  outline: none;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.topbarLogout:hover {
+  background: #000;
+  color: #0f8486;
+  border-radius: 5px;
+}
