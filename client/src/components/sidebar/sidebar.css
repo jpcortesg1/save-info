@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -7,23 +7,53 @@
   background: #094b4d;
   flex-direction: column;
   position: relative;
-  padding: 10px;
+  padding: 5px;
+  overflow-x: hidden;
 }
 
-.sidebarTitle{
+.sidebarTitle {
   font-size: 1.5rem;
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  padding-top: 1rem;
+  padding: 1rem 0;
   font-weight: 300;
   letter-spacing: 0.2rem;
 }
 
-.sidebarList{
+.sidebarList {
   max-height: calc(100vh - 170px);
   min-height: calc(100vh - 170px);
+  min-width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #094b4d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(179, 179, 179);
+}
+
+.sidebarCategory {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  background: #0f8486;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  flex-wrap: nowrap;
 }

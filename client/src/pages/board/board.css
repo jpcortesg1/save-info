@@ -1,5 +1,6 @@
 .boardMain{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .boardContainter{

@@ -37,7 +37,7 @@ const deleteCategory = async (req, res) => {
     if (categoryBody.idUser !== idUser)
       return res.status(401).json("You can only delete your categories");
 
-    await category.delete(id);
+    await category.delete(id, null);
     res.status(200).json("The category has been deleted");
   } catch (error) {
     res.status(500).json(error);

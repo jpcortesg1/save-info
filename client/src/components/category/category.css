@@ -1,20 +1,11 @@
-.category {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-radius: 5px;
-  background: #0f8486;
-  margin-top: 1rem;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
 .categoryName {
   font-size: 1.1rem;
+  overflow-x: hidden;
+  flex: 8;
 }
 
 .categoryAction {
+  flex: 4;
   cursor: pointer;
   outline: none;
   border: none;
@@ -31,6 +22,85 @@
   color: red;
 }
 
-.categoryActionEdit:hover{
+.categoryActionEdit:hover {
   color: white;
+}
+
+.categoryModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.category {
+  padding: 2rem;
+  background: #094b4d;
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryTitle {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 1rem 0;
+  color: #fff;
+}
+
+.categoryForm {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryInput {
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #fff;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.categoryInputButton {
+  background: #fff;
+  color: #094b4d;
+  cursor: pointer;
+}
+
+.categoryButtonClose {
+  top: 1rem;
+}
+
+.categoryButton {
+  outline: none;
+  border: none;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.3rem;
+  background: white;
+  border-radius: 50%;
+  color: #0f8486;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

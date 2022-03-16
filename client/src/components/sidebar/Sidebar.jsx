@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import "./sidebar.css";
@@ -8,6 +8,7 @@ import AddCategory from "../addCategory/AddCategory";
 function Sidebar() {
   const { token } = useContext(Context);
   const [categories, setCategories] = useState([]);
+  const scrollRef = useRef();
 
   useEffect(() => {
     const getCategoires = async () => {
@@ -21,15 +22,25 @@ function Sidebar() {
     getCategoires();
   }, [token.accessToken]);
 
+  useEffect(() => {
+    scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
+  }, [categories]);
+
   return (
     <div className="sidebar">
       <h3 className="sidebarTitle">Categories</h3>
       <div className="sidebarList">
         {categories.map((category) => (
-          <Category key={category._id} category={category} />
+          <div className="sidebarCategory" ref={scrollRef} key={category._id}>
+            <Category
+              category={category}
+              categories={categories}
+              setCategories={setCategories}
+            />
+          </div>
         ))}
       </div>
-      <AddCategory />
+      <AddCategory categories={categories} setCategories={setCategories} />
     </div>
   );
 }

@@ -1,8 +1,3 @@
-.addCategory {
-  background: red;
-  position: relative;
-}
-
 .addCategoryButton {
   outline: none;
   border: none;
@@ -16,4 +11,63 @@
   border-radius: 50%;
   color: #0f8486;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addCategoryModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addCategory {
+  padding: 2rem;
+  background: #094b4d;
+  position: relative;
+  border-radius: 5px;
+}
+
+.addCategoryTitle{
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 1rem 0;
+  color: #FFF;
+}
+
+.addCategoryForm{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addCategoryInput{
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #FFF;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.addCategoryInputButton{
+  background: #FFF;
+  color: #094b4d;
+  cursor: pointer;
+}
+
+.addCategoryButtonClose{
+  top: 1rem;
 }
