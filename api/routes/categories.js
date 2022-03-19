@@ -13,11 +13,11 @@ const {
   get,
 } = require("./../controllers/category");
 
-// Get a category
-router.get("/", verify, get);
-
 // Get categories for user
 router.get("/user", verify, getCategoriesUser);
+
+// Get a category
+router.get("/:id", verify, get);
 
 // Delete
 router.delete("/", verify, deleteCategory);

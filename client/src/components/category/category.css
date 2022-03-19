@@ -1,7 +1,5 @@
 .categoryName {
   font-size: 1.1rem;
-  overflow-x: hidden;
-  flex: 8;
 }
 
 .categoryAction {

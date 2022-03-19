@@ -19,6 +19,7 @@ const verify = (req, res, next) => {
       return res.status(403).json(error);
     }
     req.user = user;
+    // console.log("gonorrea")
     next();
   } else {
     res.status(401).json("You are not authenticated!");

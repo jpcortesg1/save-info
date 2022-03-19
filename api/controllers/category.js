@@ -7,7 +7,7 @@ const category = new Category();
 // Get a category
 const get = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const categoryRet = await category.get({ id });
     res.status(200).json(categoryRet);
   } catch (error) {

@@ -46,7 +46,7 @@ function Topbar() {
   return (
     <div className="topbar">
       <div className="topbarLeft">
-        <Link className="link" to="/board">
+        <Link className="link" to="/">
           <Icon />
         </Link>
       </div>

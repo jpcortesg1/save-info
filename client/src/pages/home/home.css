@@ -80,3 +80,33 @@
   background: #000;
   border-radius: 50%;
 }
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.homeIcon{
+  width: 10rem;
+  height: 10rem;
+  margin: 3rem 0;
+}
+
+.homeYouCan{
+  margin-top: 1rem;
+  font-size: 2.3rem;
+}
+
+.icon{
+  font-size: 2rem;
+}
+
+.homeCan{
+  display: flex;
+}
+
+.homeCanActions{
+  font-size: 2rem;
+}

@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { Context } from "./../../context/Context";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./category.css";
 
 function Category({ category, setCategories, categories }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(category.name);
   const [modal, setModal] = useState(false);
   const { token } = useContext(Context);
 
@@ -33,7 +34,16 @@ function Category({ category, setCategories, categories }) {
 
   return (
     <>
-      <p className="categoryName">{category.name}</p>
+      <Link
+        className="link"
+        to={`/${category._id}`}
+        style={{
+          flex: 8,
+          overflowX: "hidden",
+        }}
+      >
+        <p className="categoryName">{name}</p>
+      </Link>
       <div className="categoryActions">
         <button className="categoryAction" onClick={handleDelete}>
           <i className="fa-solid fa-trash"></i>
@@ -56,6 +66,7 @@ function Category({ category, setCategories, categories }) {
                 className="categoryInput"
                 placeholder="Write your new name"
                 onChange={(e) => setName(e.target.value)}
+                value={name}
               />
               <button className="categoryInput categoryInputButton">
                 Update
