@@ -33,6 +33,7 @@ const Reducer = (state, action) => {
       return {
         ...state,
         error: true,
+        isFetching: false,
       };
 
     default:

@@ -1,0 +1,179 @@
+.addPost {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  background: #0f8486;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.addPostIcon {
+  color: white;
+  margin-left: 5px;
+}
+
+.addPostModal {
+  position: fixed;
+  height: 100vh;
+  min-width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.addPostWrapper {
+  position: relative;
+  padding: 1rem;
+  min-width: 100%;
+  background: #0f8486;
+  overflow-y:scroll;
+}
+
+.addPostForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.addPostImage {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.addPostFile {
+  width: 80%;
+  min-height: 20rem;
+  object-fit: cover;
+  background: white;
+  height: 100px;
+}
+
+.noPostImage {
+  width: 80%;
+  min-height: 15rem;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addPostImageLabel {
+  cursor: pointer;
+  background: #0f8486;
+  padding: 1rem;
+  color: white;
+  border-radius: 1rem;
+}
+
+.addPostImageLabelAbsolute {
+  position: absolute;
+  top: -5%;
+  right: 8%;
+  color: #0f8486;
+  background-color: white;
+  border: 1px solid #0f8486;
+}
+
+.addPostImageLabelIcon {
+  margin-left: 1rem;
+}
+
+.addImage {
+  display: none;
+}
+
+.addPostInputTitle {
+  margin: 2rem 0;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid white;
+}
+
+.addPostInputTitle::placeholder {
+  color: white;
+}
+
+.addPostButtonClose {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+}
+
+.addInfo {
+  position: fixed;
+  top: 45vh;
+  left: 3rem;
+}
+
+.addInfoShow {
+  outline: none;
+  border: none;
+  background: white;
+  color: #0f8486;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addInfoOptions {
+  list-style: none;
+  background: white;
+  position: relative;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.addInfoOptions::before {
+  position: absolute;
+  top: -1rem;
+  left: 0.3rem;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 0.7rem solid transparent;
+  border-right: 0.7rem solid transparent;
+  border-bottom: 1rem solid #fff;
+}
+
+.addInfoOptionsOption{
+  cursor: pointer;
+  padding: 0.5rem 0.25rem;
+  font-size: 1rem;
+  transition: 0.3s all ease-in-out
+}
+
+.addInfoOptionsOption:hover{
+  background: rgb(202, 200, 200);
+  border-radius: 5px;
+}
+
+.addPostInformation{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

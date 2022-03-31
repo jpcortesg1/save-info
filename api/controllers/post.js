@@ -18,7 +18,7 @@ const get = async (req, res) => {
 // Get all post of a categories
 const getPostsCategory = async (req, res) => {
   try {
-    const { idCategory } = req.body;
+    const { id: idCategory } = req.params;
     const posts = await Post.get({ idCategory });
     res.status(200).json(posts);
   } catch (error) {

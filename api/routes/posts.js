@@ -17,7 +17,7 @@ const {
 router.get("/", verify, get);
 
 // Get all post for category
-router.get("/category", verify, getPostsCategory);
+router.get("/category/:id", verify, getPostsCategory);
 
 // Delete
 router.delete("/", verify, deletePost);

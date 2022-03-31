@@ -1,0 +1,19 @@
+.postsWrapper{
+  padding: 1rem;
+  position: relative;
+  min-height: calc(100vh - 80px);
+}
+
+.postsTitle{
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+.postsRender{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: calc(100vh - 10rem);
+}

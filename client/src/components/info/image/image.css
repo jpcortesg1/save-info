@@ -1,0 +1,61 @@
+.infoImage {
+  margin: 1rem;
+  min-width: 10rem;
+  min-height: 10rem;
+}
+
+.infoImageWrapper {
+  padding: 1rem;
+}
+
+.infoImageLabel{
+  padding: 0.5rem;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #0f8486;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoImageInput{
+  display: none;
+}
+
+.infoImageContent{
+  position: relative;
+  max-width: 15rem;
+  max-height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoImageContent img{
+  width: 100%;
+  max-height: 100%;
+}
+
+.infoImageLabelAbsolute{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.infoImageLabelAbsoluteTrash{
+  right: -2.5rem;
+}
+
+.infoImageLabelTrash{
+  margin-left: 1rem;
+}
+
+.infoImageNoImage{
+  display: flex;
+  border: 1px solid #fff;
+  padding: 1rem;
+  background: white;
+  border-radius: 5px;
+}
