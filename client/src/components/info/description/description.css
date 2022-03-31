@@ -1,0 +1,42 @@
+.infoDescription {
+  width: 80vw;
+}
+
+.infoDescriptionWrapper {
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoDescriptionWrapperContent {
+  width: 100%;
+  min-height: 5rem;
+  font-size: 1.1rem;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  border-left: 2px solid #fff;
+  padding-left: 1rem;
+}
+
+.infoDescriptionWrapperContent::placeholder {
+  color: white;
+}
+
+.infoDescriptionActions {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #0f8486;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
