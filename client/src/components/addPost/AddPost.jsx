@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import Description from "../info/description/Description";
 import Image from "../info/image/Image";

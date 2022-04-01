@@ -19,6 +19,7 @@ const Description = ({ info, id, deleteInfo }) => {
           className="infoDescriptionWrapperContent"
           placeholder="Writte your description"
           onChange={(e) => setDescription(e.target.value)}
+          value={description}
         ></textarea>
         <div className="infoDescriptionActions">
           <i

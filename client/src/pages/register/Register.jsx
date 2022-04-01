@@ -81,6 +81,7 @@ function Register() {
               className="registerInpunt registerInputFile"
               type="file"
               id="file"
+              accept="image/*"
               onChange={(e) => setFile(e.target.files[0])}
             />
             <input
