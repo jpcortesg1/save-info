@@ -13,7 +13,7 @@ const get = async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-}
+};
 
 // Get all post of a categories
 const getPostsCategory = async (req, res) => {
@@ -73,7 +73,7 @@ const update = async (req, res) => {
 const create = async (req, res) => {
   try {
     const { id: idUser } = req.user;
-    const { idCategory, banner, title, info } = req.body;
+    const { idCategory, banner, title, info } = req.body.camps;
     if (!idCategory || !banner || !title || !info)
       return res.status(404).json("Missing information to create the post");
 
@@ -90,5 +90,5 @@ module.exports = {
   update,
   deletePost,
   getPostsCategory,
-  get
+  get,
 };

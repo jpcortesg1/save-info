@@ -1,26 +1,75 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { Context } from "../../context/Context";
 import Description from "../info/description/Description";
 import Image from "../info/image/Image";
 import SubTitle from "../info/subTitle/SubTitle";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 import "./addPost.css";
 
-const AddPost = () => {
-  const [modal, setModal] = useState(true);
+const AddPost = ({ setPosts, posts}) => {
+  const { token } = useContext(Context);
+  const [modal, setModal] = useState(false);
   const [optionsInfo, setOptionInfo] = useState(false);
   const [banner, setBanner] = useState("");
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState([]);
+  const location = useLocation();
 
   const deleteInfo = (id) => {
-    const help = [...info];
-    help[id] = 1;
-    help.filter((h) => h !== 1);
-    setInfo(help);
+    setInfo([...info.slice(0, id), {}, ...info.slice(id + 1)]);
   };
 
-  const handleSubmit = (e) => {
+  const savePhoto = async (file) => {
+    // Create format to save photo
+    const data = new FormData();
+    const filename = Date.now() + file.name;
+    data.append("name", filename);
+    data.append("file", file);
+
+    try {
+      await axios.post("/upload", data);
+      return filename;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("click");
+    // Get all data to save new post
+    const camps = {
+      title,
+      banner,
+      idCategory: location.pathname.slice(1),
+      info: info.filter((camp) => {
+        return (
+          Object.keys(camp).length !== 0 &&
+          Object.values(camp)[0].toString() !== ""
+        );
+      }),
+    };
+
+    // Save all photos
+    camps.banner = await savePhoto(camps.banner);
+    camps.info.map(async (camp) => {
+      if (Object.keys(camp)[0].toString() === "image") {
+        const filename = await savePhoto(camp.image);
+        camp.image = filename;
+      }
+    });
+
+    try {
+      const { data } = await axios.post(
+        "/posts",
+        { camps },
+        { headers: { authorization: "Bearer " + token.accessToken } }
+      );
+      setPosts([...posts, data]);
+      setModal(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

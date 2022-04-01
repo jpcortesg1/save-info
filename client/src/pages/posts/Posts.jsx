@@ -53,7 +53,7 @@ function Posts() {
               <Post key={post._id} post={post} />
             ))}
           </div>
-          <AddPost />
+          <AddPost posts={posts} setPosts={setPosts} />
         </div>
       </div>
     </Board>

@@ -177,3 +177,14 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.addPostInput{
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #0f8486;
+}
